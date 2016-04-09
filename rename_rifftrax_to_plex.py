@@ -16,7 +16,12 @@ if len(sys.argv) < 2:
 SERIES_NAME = 'Rifftrax'
 
 tvdb_api_config = ConfigParser.ConfigParser()
-read_configs = tvdb_api_config.read([os.path.join(d, '.tvdb_api.cfg') for d in ['.', os.path.expanduser('~')]])
+tvdb_config_search_path = [
+    '.',
+    os.path.expanduser('~'),
+    os.path.dirname(os.path.realpath(__file__)),
+]
+read_configs = tvdb_api_config.read([os.path.join(d, '.tvdb_api.cfg') for d in tvdb_config_search_path])
 print(read_configs)
 tvdb_api_config.write(sys.stdout)
 apikey = tvdb_api_config.get('init', 'apikey')
