@@ -1,10 +1,10 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 
 from __future__ import print_function
 import os
 import sys
 
-import ConfigParser
+import configparser
 
 from fuzzywuzzy import process
 import tvdb_api
@@ -15,7 +15,7 @@ if len(sys.argv) < 2:
 
 SERIES_NAME = 'Rifftrax'
 
-tvdb_api_config = ConfigParser.ConfigParser()
+tvdb_api_config = configparser.ConfigParser()
 tvdb_config_search_path = [
     '.',
     os.path.expanduser('~'),
